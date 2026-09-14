@@ -1,13 +1,13 @@
 {
   "name": "@diffusionstudio/cli",
   "private": true,
-  "version": "0.205.0",
+  "version": "0.205.1",
   "license": "MPL-2.0",
   "bin": {
     "dapi": "./dist/index.js"
   },
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --platform=node --format=cjs --outfile=dist/index.js && chmod +x dist/index.js",
+    "build": "node init && esbuild src/index.ts --bundle --platform=node --format=cjs --outfile=dist/index.js && chmod +x dist/index.js",
     "check": "tsc --noEmit",
     "symlink:remove": "rm -f /opt/homebrew/bin/dapi",
     "symlink:create": "npm run build && ln -sf \"$PWD/dist/index.js\" /opt/homebrew/bin/dapi"
